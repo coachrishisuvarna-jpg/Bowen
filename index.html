@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en" data-theme="sbtd">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beyond Muscle Crew  -  Coaching for Busy NRIs & Professionals</title>
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://featurable.com">
+  <meta name="description" content="Evidence-based, bang-for-buck coaching that fits real life. Lite plan, Comprehensive plan, or targeted consults. Smart training. Flexible nutrition. Real accountability." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- SBTD-inspired type pairing: friendly geometric display + modern sans body -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* =====================================================
+       SBTD-inspired Theme & Component System (not a clone)
+       ===================================================== */
+    :root {
+      --tone-dark: #12261D;   /* primary dark green */
+      --tone-light: #F5FFE6;  /* primary light green */
+      /* Neutrals */
+      --ink: #0C0C0D;         /* primary text */
+      --ink-2: #6B6B72;       /* secondary text */
+      --paper: #FFFFFF;       /* page bg */
+      --paper-2: #F4F8FF;     /* section tint */
+      --card: #FFFFFF;        /* cards */
+      --line: rgba(15,15,20,0.08);
+      --line-strong: rgba(15,15,20,0.16);
+
+      /* Accent (SBTD-adjacent coral) */
+      --brand: #0B3B8C;       /* primary */
+      --brand-2: #0C0C0D;     /* soft */
+      --brand-ink: #0C0C0D;   /* deep */
+
+      /* Utility */
+      --ok:#10B981; --warn:#F59E0B; --err:#EF4444;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 18px;         /* global rounding */
+      --radius-pill: 999px;   /* full pill */
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: var(--paper);
+      background-image: none;
+    }
+    h1,h2,h3,.display { font-family: "Plus Jakarta Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; letter-spacing:-0.02em; text-wrap: balance; color:#0C0C0D; }
+
+    /* ===================== Header ===================== */
+    .header { position: sticky; top:0; z-index:50; backdrop-filter: none; background: #FFFFFF; border-bottom:1px solid var(--line); }
+    .nav a { font-size:.9rem; color:#6B6B72; padding:.25rem .25rem; border-bottom:2px solid transparent; transition: color .2s ease, border-color .2s ease; text-transform: uppercase; letter-spacing:.06em; }
+    .nav a:hover { color:#0C0C0D; border-bottom-color: #0C0C0D; }
+
+    /* ===================== Hero ===================== */
+    .hero { position: relative; background: var(--paper); }
+.hero::before { content: none; }
+
+.kicker { background:#F2F2F5; color:#0C0C0D; border:1px solid var(--line); border-radius: var(--radius-pill); padding:.5rem .8rem; font-size:.75rem; }
+    .underline-swish { background: linear-gradient(90deg, #A7C4FF 0%, #3C63D7 45%, #0B3B8C 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+    /* ===================== Buttons ===================== */
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; font-weight:600; border-radius: var(--radius-pill); padding:.8rem 1.1rem; border:1px solid transparent; box-shadow: var(--shadow-sm); transition: transform .06s ease, filter .2s ease, box-shadow .2s ease; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background:#0B3B8C; color:#fff; border-color:#0B3B8C; box-shadow: 0 8px 18px rgba(0,0,0,.10); }
+    .btn-primary:hover { background:#082C6B; box-shadow: 0 10px 22px rgba(0,0,0,.12); }
+    .btn-outline { background: rgba(15,15,20,.03); color:#0C0C0D; border-color: rgba(15,15,20,.14); box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    .btn-ghost { background: rgba(15,15,20,.06); color:#0C0C0D; border-color: rgba(15,15,20,.14); box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+
+    /* ===================== Cards & Lists ===================== */
+    .card { background:#FFFFFF; border-radius: var(--radius); border:1px solid transparent; background-image: linear-gradient(#FFFFFF,#FFFFFF), linear-gradient(180deg, rgba(12,12,13,.16), rgba(12,12,13,0)); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .plan { position:relative; overflow:hidden; }
+    .plan--featured { border:1px solid var(--line-strong); box-shadow: var(--shadow-sm); position:relative; }
+.plan--featured::after { content: none; }
+    .chip { display:inline-block; padding:.35rem .7rem; border-radius: var(--radius-pill); font-size:.75rem; background: #F2F2F5; color:#0C0C0D; border:1px solid var(--line); }
+    .chip.brand { background: var(--brand); color:#FFFFFF; border-color: var(--brand); }
+
+    .list-tick { list-style: none; padding-left:0; }
+    .list-tick li { display:flex; gap:.6rem; align-items:flex-start; }
+    .list-tick li::before { content:""; flex:0 0 18px; height:18px; margin-top:.2rem; border-radius:50%; background: conic-gradient(var(--ok), var(--ok)); mask: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"white\"><path d=\"M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z\"/></svg>') center/18px 18px no-repeat; background-color: var(--ok); }
+
+    /* ===================== Sections ===================== */
+    section { scroll-margin-top: 96px; }
+    .tint { background: var(--paper-2); color: var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+    /* ===================== FAQ (details/summary accordion) ===================== */
+    details.faq { border:1px solid transparent; border-radius: var(--radius); padding:1rem 1rem; background: linear-gradient(#FFFFFF,#FFFFFF) padding-box, linear-gradient(180deg, rgba(12,12,13,.12), rgba(12,12,13,0)) border-box; box-shadow: var(--shadow-sm); }
+    details.faq + details.faq { margin-top:.8rem; }
+    details.faq summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; font-weight:600; gap:1rem; }
+    details.faq summary::-webkit-details-marker{ display:none; }
+    .chev { transition: transform .2s ease, background-color .2s ease, border-color .2s ease; padding:4px; border-radius:999px; border:1px solid var(--line-strong); background:#FFFFFF; }
+    details[open] .chev { transform: rotate(180deg); background:#F7F7F9; }
+
+    /* ===================== Sticky CTA ===================== */
+    .sticky-cta { position: sticky; bottom:0; z-index:40; background:#FFFFFF; border-top:1px solid var(--line); }
+    
+    /* ===================== Utilities ===================== */
+    .max-w-wrap { max-width: 1120px; }
+  .text-gray-800, .text-gray-700, .text-black { color: var(--ink) !important; }
+  .text-gray-600, .text-gray-500 { color: var(--ink-2) !important; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
+.btn-ghost:hover { background: rgba(15,15,20,.10); border-color: rgba(15,15,20,.22); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+/* shine removed for modern flat look */
+/* hover shine removed */
+.plan--featured::before { content: none; }
+.scroll-cue { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); width:36px; height:36px; border:1px solid var(--line-strong); border-radius:50%; display:grid; place-items:center; background:#FFFFFF; box-shadow: var(--shadow-sm); }
+.scroll-cue span { width:10px; height:10px; border-bottom:2px solid #0C0C0D; border-right:2px solid #0C0C0D; transform: rotate(45deg); animation: bob 1.5s infinite; }
+@keyframes bob { 0%,100% { transform: rotate(45deg) translateY(0);} 50% { transform: rotate(45deg) translateY(3px);} }
+/* Opposite-color lift: light cards on dark sections, dark cards on light sections */
+section:not(.tint) .card { background: var(--card); color: var(--ink); border:1px solid var(--line); box-shadow: var(--shadow-sm); }
+section.tint .card { background: var(--card); color: var(--ink); border:1px solid var(--line); box-shadow: var(--shadow-sm); }
+/* Fix hover specificity for ghost button */
+.btn-ghost:hover { background: rgba(15,15,20,.07); border-color: rgba(15,15,20,.24); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+.card h3 { color: #0C0C0D; }
+
+.tint h1, .tint h2, .tint h3 { color:#0C0C0D; }
+.tint .text-gray-700, .tint .text-gray-600, .tint .text-gray-500, .tint .text-black { color: var(--ink) !important; }
+.tint .btn-ghost { background:#FFFFFF; color:#0C0C0D; border-color: var(--line-strong); }
+.tint .btn-ghost:hover { background: rgba(15,15,20,.07); border-color: rgba(15,15,20,.24); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+/* Premium hero card */
+.card--prime { background: var(--tone-light); border:1px solid rgba(7,34,21,.18); position:relative; overflow:hidden; box-shadow: 0 16px 40px rgba(0,0,0,.18); }
+.card--prime::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)); pointer-events:none; }
+.card--prime::after { content:""; position:absolute; inset:0 0 auto 0; height:4px; background: linear-gradient(90deg, var(--tone-light), var(--tone-light)); opacity:.65; }
+/* Hero Who-am-I spotlight card */
+.card--hero { background: var(--tone-light); border:2px solid rgba(7,34,21,.18); position:relative; overflow:hidden; box-shadow: 0 24px 70px rgba(0,0,0,.22); }
+.card--hero::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0)); pointer-events:none; }
+/* subtle separators so sections don’t visually merge */
+section + section { border-top:1px solid var(--line); }
+.eyebrow{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:#6B6B72; margin-bottom:.4rem}
+/* Plans: responsive carousel on mobile, grid on desktop */
+.plans-row{ display:grid; gap:1.5rem; }
+@media (max-width: 768px){
+  .plans-row{ grid-auto-flow: column; grid-auto-columns: 90%; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding: 0 .25rem .5rem; scroll-padding-left:.25rem; }
+  .plans-row .card{ scroll-snap-align:start; }
+  .plan h3{ font-size:1.1rem; line-height:1.3; }
+  .plan ul{ line-height:1.5; }
+  .plan ul li strong{ display:block; font-weight:700; margin-bottom:2px; }
+  .plan .btn{ align-self:flex-start; }
+}
+@media (min-width: 769px){  .plans-row{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.feature-icon{flex:0 0 28px; height:28px; border-radius:50%; border:1px solid var(--line-strong); display:inline-grid; place-items:center;}
+.feature-icon::before{content:""; width:12px; height:12px; border-bottom:2px solid #0C0C0D; border-right:2px solid #0C0C0D; transform: rotate(45deg);} 
+.btn:focus-visible { outline:none; box-shadow: 0 0 0 3px rgba(17,17,17,.24), 0 1px 2px rgba(0,0,0,.06); }
+.btn-outline:hover { background: rgba(15,15,20,.10); color:#0C0C0D; border-color: rgba(15,15,20,.22); }
+.btn-ghost:hover { background: rgba(15,15,20,.07); border-color: rgba(15,15,20,.24); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+/* FAQ states */
+details.faq:hover { box-shadow: 0 10px 26px rgba(0,0,0,.06); }
+details.faq[open] { box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+
+/* Minimal ornaments (desktop only) */
+@media (min-width: 1024px){
+  #home, #who, #apply { position:relative; }
+  #home::after { content:""; position:absolute; inset:auto 0 -40px 0; height:1px; background: linear-gradient(90deg, rgba(12,12,13,0), rgba(12,12,13,.12), rgba(12,12,13,0)); }
+  #who::before { content:""; position:absolute; right:-60px; top:20px; width:220px; height:220px; border-radius:50%; background: radial-gradient(circle at 30% 30%, rgba(12,12,13,.06), transparent 60%); }
+  #apply::before { content:""; position:absolute; left:-60px; bottom:-30px; width:280px; height:280px; border-radius:50%; background: radial-gradient(circle at 70% 70%, rgba(12,12,13,.06), transparent 60%); }
+}
+/* Extra ornaments across more sections (desktop-only) */
+@media (min-width: 1024px){
+  #proof, #offer, #about, #faq, #watch, #instagram, #free, #gpts { position:relative; z-index:0; }
+  #proof::before { content:""; position:absolute; left:-60px; top:-20px; width:240px; height:240px; border-radius:50%; background: radial-gradient(circle at 30% 30%, rgba(12,12,13,.06), transparent 60%); pointer-events:none; z-index:-1; }
+  #offer::after { content:""; position:absolute; right:-80px; top:10px; width:320px; height:200px; background:
+    repeating-linear-gradient(0deg, rgba(12,12,13,.05) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(12,12,13,.05) 0 1px, transparent 1px 10px);
+    border-radius:16px; pointer-events:none; z-index:-1; }
+  #about::after { content:""; position:absolute; right:-60px; bottom:-30px; width:260px; height:260px; border-radius:50%; background: radial-gradient(circle at 70% 70%, rgba(12,12,13,.06), transparent 60%); pointer-events:none; z-index:-1; }
+  #faq::before { content:""; position:absolute; left:-40px; top:40px; width:180px; height:180px; border-radius:50%; background: radial-gradient(circle at 40% 40%, rgba(12,12,13,.05), transparent 60%); pointer-events:none; z-index:-1; }
+  #watch::before { content:""; position:absolute; left:-40px; bottom:-50px; width:260px; height:260px; border-radius:50%; background: radial-gradient(circle at 30% 70%, rgba(12,12,13,.06), transparent 60%); pointer-events:none; z-index:-1; }
+  #instagram::after { content:""; position:absolute; right:-40px; top:-30px; width:220px; height:220px; border-radius:50%; background: radial-gradient(circle at 70% 30%, rgba(12,12,13,.06), transparent 60%); pointer-events:none; z-index:-1; }
+  #free::before { content:""; position:absolute; left:-60px; top:40px; width:220px; height:220px; border-radius:50%; background: radial-gradient(circle at 30% 30%, rgba(12,12,13,.05), transparent 60%); pointer-events:none; z-index:-1; }
+  #gpts::after { content:""; position:absolute; right:-80px; bottom:-40px; width:260px; height:260px; border-radius:50%; background: radial-gradient(circle at 70% 70%, rgba(12,12,13,.06), transparent 60%); pointer-events:none; z-index:-1; }
+}
+/* Guided Independence list formatting */
+.consult-list li { line-height:1.5; }
+.consult-list li strong { display:block; font-weight:700; margin-bottom:2px; white-space:nowrap; word-break:keep-all; }
+@media (min-width: 480px){
+  .consult-list li { display:flex; gap:.5rem; align-items:flex-start; }
+  .consult-list li strong { display:inline-block; min-width:110px; margin:0; white-space:nowrap; }
+}
+/* GPTs section hardening */
+#gpts{display:block;}
+#gpts .grid{display:grid;}
+#gpts .card{opacity:1;}
+
+/* Helpers */
+.aspect-video{position:relative;aspect-ratio:16/9}
+.aspect-4x5{position:relative;aspect-ratio:4/5}
+.aspect-video>iframe,.aspect-4x5>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#instagram .grid{place-items:start center}
+.ig-card{width:clamp(240px,30vw,340px)}
+@media (max-width:640px){.ig-card{width:100%}}
+.insta iframe,.insta blockquote{width:100%!important;height:100%!important;min-height:0!important;max-width:100%!important}
+.insta{overflow:hidden;border-radius:12px}
+.planfit-big{line-height:1.6}
+.planfit-big h3{font-size:clamp(1.4rem,2.3vw,2rem)}
+.planfit-big .prose-like p{font-size:clamp(1.02rem,1.9vw,1.125rem);color:var(--ink-2)}
+.planfit-big .prose-like strong{color:var(--ink)}
+
+
+/* Close hero→about gap */
+#home + #about { padding-top: 0; margin-top: 0; }
+
+/* Option A: soft top divider for #about */
+#about { position: relative; }
+#about::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(12,12,13,.12), transparent);
+}
+
+/* Option C: card accent inside #about */
+#about .card { border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm); }
+
+
+/* Compact, fresh look for stats cards */
+#about .card { border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm); border-radius: 14px; padding: 16px !important; }
+#about .card .font-extrabold { font-size: clamp(1.35rem, 2.2vw, 1.75rem); }
+#about .card .text-sm { font-size: 0.875rem; opacity: 0.85; }
+#about .grid { gap: 14px; }
+
+
+/* IG section hardening */
+.ig-card { line-height: 0; } /* kill stray whitespace */
+.insta iframe { display: block !important; } /* avoid inline gap */
+#instagram .grid { gap: 18px; } /* controlled, even spacing between cards */
+@media (max-width: 768px){
+  #instagram .grid { gap: 14px; }
+}
+
+
+/* ===== Mobile nav & helpers (non-invasive) ===== */
+.no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+.no-scrollbar::-webkit-scrollbar{ display:none; }
+.mobile-nav { border-top: 1px solid var(--line); }
+.mobile-nav a { white-space: nowrap; }
+
+/* Keyboard focus visibility for accessibility */
+a:focus-visible { outline: 2px solid rgba(11,59,140,.5); outline-offset: 2px; border-radius: 6px; }
+</style>
+</head>
+<body>
+  <!-- Announcement Bar -->
+  <div class="tint text-xs md:text-sm">
+    <div class="mx-auto max-w-wrap px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-[13px]">New: <strong>Lite</strong> and <strong>Consult Pack</strong> intakes open this month.</div>
+      <a href="#apply" class="btn btn-primary px-4 py-2 text-xs">Enquire now</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="mx-auto max-w-wrap px-4 py-4 flex items-center justify-between">
+      <a href="#home" onclick="event.preventDefault(); document.querySelector('#home').scrollIntoView({behavior:'smooth'});" class="font-extrabold tracking-tight text-xl">
+        Beyond<span style="color:#0B3B8C">Muscle</span>Crew
+      </a>
+      <nav class="nav hidden md:flex gap-6">
+        <a href="#offer" onclick="event.preventDefault(); document.querySelector('#offer').scrollIntoView({behavior:'smooth'});">Coaching</a>
+        <a href="#proof" onclick="event.preventDefault(); document.querySelector('#proof').scrollIntoView({behavior:'smooth'});">Results</a>
+        <a href="#about" onclick="event.preventDefault(); document.querySelector('#about').scrollIntoView({behavior:'smooth'});">Philosophy</a>
+        <a href="#free" onclick="event.preventDefault(); document.querySelector('#free').scrollIntoView({behavior:'smooth'});">Free Stuff</a>
+        <a href="#faq" onclick="event.preventDefault(); document.querySelector('#faq').scrollIntoView({behavior:'smooth'});">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="btn btn-primary text-sm">Enquire now</a>
+      </div>
+    </div>
+  
+  <nav class="nav mobile-nav md:hidden gap-3 overflow-x-auto no-scrollbar px-4 py-2">
+    <a href="#offer" onclick="event.preventDefault(); document.querySelector('#offer').scrollIntoView({behavior:'smooth'});">Coaching</a>
+    <a href="#proof" onclick="event.preventDefault(); document.querySelector('#proof').scrollIntoView({behavior:'smooth'});">Results</a>
+    <a href="#about" onclick="event.preventDefault(); document.querySelector('#about').scrollIntoView({behavior:'smooth'});">Philosophy</a>
+    <a href="#free" onclick="event.preventDefault(); document.querySelector('#free').scrollIntoView({behavior:'smooth'});">Free Stuff</a>
+    <a href="#faq" onclick="event.preventDefault(); document.querySelector('#faq').scrollIntoView({behavior:'smooth'});">FAQ</a>
+  </nav>
+</header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="mx-auto max-w-wrap px-4 py-16 md:py-24 grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-7">
+        <span class="kicker">Smarter training • Flexible nutrition • Real life</span>
+        <h1 class="mt-5 text-4xl md:text-6xl font-extrabold leading-tight">Coaching that <span class="underline-swish">gets more out of less</span>  -  built for busy professionals & self‑sustaining NRIs</h1>
+        <p class="mt-5 text-lg text-gray-700">Evidence-based, bang-for-buck systems to make fitness <em>consistent</em> without hijacking your life. No 6‑day bro splits. No guilt. Just progress that survives work, winter, and weddings.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="#offer" onclick="event.preventDefault(); document.querySelector('#offer').scrollIntoView({behavior:'smooth'});" class="btn btn-ghost">See plans</a>
+          <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="btn btn-primary">Enquire now</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-xs text-gray-500">
+          <span>★★★★★ on <a href="https://g.page/r/Cd0b9bN1TEBgEBM/review" target="_blank" class="underline">Google</a></span>
+          <span>•</span>
+          <a href="https://www.youtube.com/@coachrishisuvarna" target="_blank" class="underline">YouTube: Not Sorry to Interrupt</a>
+        </div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="card card--prime p-5 md:p-6"><div class="eyebrow">At a glance</div>
+          <div class="flex items-center gap-2"><span class="chip brand">High‑ROI</span><span class="chip">Joint‑friendly</span><span class="chip">NRI‑ready</span></div>
+          <ul class="mt-4 list-tick space-y-2 text-sm text-gray-800">
+            <li>2–4 day splits with A/B/C weeks</li>
+            <li>Defaults + busy‑day swaps for food</li>
+            <li>Mechanics‑first cues that spare joints</li>
+            <li>Boundaries that keep momentum steady</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="#offer" class="scroll-cue" onclick="event.preventDefault(); document.querySelector('#offer').scrollIntoView({behavior:'smooth'});" aria-label="Scroll to plans"><span></span></a>
+  </section>
+
+
+  <!-- Social Proof / Results -->
+  <section id="proof" class="py-16 tint">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Real people. Real momentum.</h2>
+        <p class="mt-2 text-gray-700">★★★★★ on Google. Progress that looks good on paper <em>and</em> feels good in life.</p>
+      </div>
+
+      <div id="google-reviews" class="mt-10">
+        <div id="featurable-7adce84d-37be-49e7-979f-74900f6c50be" data-featurable-async></div>
+        <script src="https://featurable.com/assets/bundle.js" defer charset="UTF-8"></script>
+
+        <div id="reviews-fallback" style="display:none" class="mt-6 grid md:grid-cols-3 gap-6">
+          <figure class="card p-6">
+            <blockquote class="text-sm">“The first plan that didn’t burn me out. Traveling, winter, deadlines  -  still managed to train 3x/week and drop 6kg.”</blockquote>
+            <figcaption class="mt-3 text-xs text-gray-500"> -  A., Dublin (Consults ➜ Comprehensive)</figcaption>
+          </figure>
+          <figure class="card p-6">
+            <blockquote class="text-sm">“Nutrition finally makes sense. Busy‑day swaps stopped the all‑or‑nothing spiral.”</blockquote>
+            <figcaption class="mt-3 text-xs text-gray-500"> -  S., London (Lite)</figcaption>
+          </figure>
+          <figure class="card p-6">
+            <blockquote class="text-sm">“Mechanics‑first cues = shoulder pain gone, pumps insane. Wish I had this 5 years ago.”</blockquote>
+            <figcaption class="mt-3 text-xs text-gray-500"> -  V., Toronto (Comprehensive)</figcaption>
+          </figure>
+          <div class="md:col-span-3 text-xs text-gray-500">If reviews don’t appear here in preview, they’ll load on the live site.</div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex items-center gap-4">
+        <a href="https://g.page/r/Cd0b9bN1TEBgEBM/review" target="_blank" class="btn btn-ghost text-sm">Read all reviews on Google</a>
+      </div>
+    </div>
+  </section>
+<section id="about" class="py-16" style="background: linear-gradient(135deg, #f9f5f0 0%, #eaf4ff 100%);">
+  <div class="mx-auto max-w-wrap px-4">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl md:text-4xl font-extrabold">We gotchu, properly &amp; meaningfully</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">100%</div>
+        <div class="text-sm text-gray-600">clients trained with us for 6 months+</div>
+      </div>
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">95%+</div>
+        <div class="text-sm text-gray-600">continued for 8–12 months</div>
+      </div>
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">100%</div>
+        <div class="text-sm text-gray-600">clients feel in control — won't fall off / put it back on</div>
+      </div>
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">13years</div>
+        <div class="text-sm text-gray-600">under the bar - that's me</div>
+      </div>
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">4y+</div>
+        <div class="text-sm text-gray-600">coaching • 80+ clients • 10+ countries</div>
+      </div>
+      <div class="card p-5 text-center">
+        <div class="text-3xl md:text-4xl font-extrabold">9/10</div>
+        <div class="text-sm text-gray-600">clients feel like “fitness people” now</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Offer / Plans -->
+  <section id="offer" class="py-16">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Pick your level of support</h2>
+        <p class="mt-2 text-gray-700">All options are personalized. Choose Lite for a tight plan, Comprehensive for 1:1 accountability, or book targeted consults.</p>
+      </div>
+
+      <div class="plans-row mt-10" aria-label="Plans carousel">
+        <!-- Lite Plan -->
+        <div class="card plan p-6 flex flex-col">
+          <div class="flex items-center gap-2"><span class="chip brand">Lite Plan</span></div>
+          <h3 class="text-xl font-bold mt-2">Fundamentals done right  -  minus the BS</h3>
+          <ul class="mt-4 list-tick space-y-2 text-sm text-gray-800">
+            <li>Minimal, flexible training split</li>
+            <li>Diet + variation diets + busy-day backups</li>
+            <li>Clear boundaries: flexible vs non‑negotiable</li>
+            <li>Personalized plan (no 1:1 messaging)</li>
+          </ul>
+          <p class="mt-4 text-sm text-gray-500">No crash diets. No gimmicks. Just a high‑ROI plan that fits real life.</p>
+          <div class="mt-6 flex-1"></div>
+          <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="mt-4 btn btn-ghost text-sm">Enquire now</a>
+        </div>
+
+        <!-- Comprehensive Plan -->
+        <div class="card plan plan--featured p-6 flex flex-col">
+          <div class="flex items-center gap-2"><span class="chip brand">Comprehensive</span><span class="chip">Most Support</span></div>
+          <h3 class="text-xl font-bold mt-2">Co‑Pilot + 1:1 Accountability</h3>
+          <ul class="mt-4 list-tick space-y-2 text-sm text-gray-800">
+            <li>Everything in Lite + weekly check‑ins</li>
+            <li>WhatsApp access (reasonable hours)</li>
+            <li>Monthly sync calls</li>
+            <li>Plan tweaks as goals evolve</li>
+            <li>Access to Inner Circle & pro tools (after consistency)</li>
+          </ul>
+          <p class="mt-4 text-sm text-gray-500">Me in the passenger seat with coffee. More feedback, more access, more accountability.</p>
+          <div class="mt-6 flex-1"></div>
+          <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="mt-4 btn btn-ghost text-sm">Enquire now</a>
+        </div>
+
+        <!-- Consults -->
+        <div class="card plan p-6 flex flex-col">
+          <div class="flex items-center gap-2"><span class="chip brand">Consults</span></div>
+          <h3 class="text-xl font-bold mt-2">Guided Independence Pack (2 calls)</h3>
+          <ul class="mt-4 list-tick space-y-2 text-sm text-gray-800">
+            <li>Two deep‑dive consults for intermediate lifters who need clarity, not hand‑holding.</li>
+            <li>Audit training, nutrition, and constraints to pinpoint bottlenecks and quick wins.</li>
+            <li>Focused plan pack: personalized split, NRI‑friendly nutrition defaults, and a 4–6‑week progression roadmap.</li>
+            <li>Second call after 2–3 weeks to review, course‑correct, and lock the next block.</li>
+          </ul>
+          <div class="mt-6 flex-1"></div>
+          <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="mt-4 btn btn-ghost text-sm">Book consult pack</a>
+        </div>
+      </div>
+      <div class="sm:hidden mt-3 text-[12px] text-gray-600">Swipe →</div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6 text-sm text-gray-700">
+        <div class="card p-5"><strong class="text-black">What we don’t do</strong>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>Unrealistic plans that ignore work & winter</li>
+            <li>Fad diets / carb‑fear / fasting religion</li>
+            <li>Copy‑paste journeys</li>
+          </ul></div>
+        <div class="card p-5"><strong class="text-black">What we do instead</strong>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>High‑ROI splits that adapt to your bandwidth</li>
+            <li>Flexible nutrition with busy‑day swaps</li>
+            <li>Crystal‑clear boundaries & conscious trade‑offs</li>
+          </ul></div>
+        <div class="card p-5"><strong class="text-black">Bottom line</strong>
+          <p class="mt-2">Everything you need to make fitness regular and sustainable  -  on your terms.</p></div>
+      </div></div></section>
+
+  <!-- Plan Fit / Not Fit Section -->
+  <section id="plan-fit" class="py-16 tint">
+  <div class="mx-auto max-w-wrap px-4">
+    <div class="card p-10 planfit-big">
+      <h3 class="font-extrabold tracking-tight mb-6" style="text-align:center;">
+        Pause. Reflect. Is online coaching right for you <span class="nowrap">right now?</span>
+      </h3>
+      <div class="prose-like">
+        <p>
+          Our online model is built to help you make deep, lasting changes with clear structure,
+          high‑ROI training, and week‑to‑week momentum that compounds.
+        </p>
+        <p>
+          <strong>Honest filter:</strong> online coaching only works when you
+          <em>keep communicating</em>. Not just in week one, but also in week four when
+          things go quiet. The small, proactive updates (a quick voice note, a check‑in, a form)
+          are the engine. They let us course‑correct early so you never drift.
+        </p>
+        <p>
+          If check‑ins feel like a chore, or if you prefer to “set and forget” without timely feedback,
+          this may not be the right fit yet. And that’s okay. Come in when you’re truly ready to engage,
+          because that’s when this model shines.
+        </p>
+        <p class="mb-0">
+          If you’re thinking, “Yes, I can make weekly check‑ins and quick updates a priority,”
+          you’ll love working this way. You bring intent and communication. We bring the system,
+          clarity, and accountability to help you move steadily toward the result you want.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+  
+  
+
+  <!-- Who am I -->
+  <section id="who" class="py-16">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Who am I?</h2>
+      </div>
+      <div class="card card--hero p-6 md:p-8 mt-6">
+        <div class="space-y-4 text-base leading-relaxed text-gray-800">
+          <p>Internationally certified PT with 13 years under the bar and 4 years coaching 80+ clients across countries. I’m evidence‑driven on mechanics, progression, and recovery  -  but I coach people, not spreadsheets. I trained through advanced cancer and chemo, rebuilt after big body‑image swings, and lived the NRI two‑jobs grind for 7+ years. That’s why I obsess over practical systems that hold when life gets lifey.</p>
+          <p>How that translates for you: we start <strong>constraints‑first</strong> (your week map, travel, injuries, headspace). Programming uses the <strong>minimum‑effective‑dose</strong> with A/B/C weeks and joint‑friendly exercises that maximize stimulus‑to‑fatigue. Nutrition becomes <strong>defaults + busy‑day swaps</strong> you’ll actually use. If hormones, body‑image, or mental‑health dips are in the mix, we build <strong>season‑aware</strong> goals, add cycle/travel adjustments, and keep feedback loops gentle but honest. For NRIs, we bake in eating‑out strategies, festival weeks, and timezone‑friendly accountability.</p>
+        </div>
+        <div class="h-px" style="background:var(--line); margin:1.2rem 0"></div>
+        <h3 class="text-lg font-bold">What you’ll feel as a client</h3>
+        <ul class="mt-4 grid md:grid-cols-2 gap-4">
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Weeks that actually work:</strong> plan A/B/C for 2‑, 3‑, or 4‑day weeks, plus travel & festival contingencies.</div>
+          </li>
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Clarity over guilt:</strong> you’ll know what’s flexible vs non‑negotiable, so trade‑offs feel clean - not like failure.</div>
+          </li>
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Food you actually eat:</strong> NRI‑friendly defaults, eating‑out swaps, and travel kits that keep protein high without drama.</div>
+          </li>
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Joints stay happy:</strong> mechanics‑first cues and smart exercise choices so progress doesn’t mean pain.</div>
+          </li>
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Accountability that respects bandwidth:</strong> time‑zone‑friendly check‑ins, clear response windows, no ghosting.</div>
+          </li>
+          <li class="feature flex gap-3">
+            <span class="feature-icon" aria-hidden="true"></span>
+            <div><strong>Minimum effective dose thinking:</strong> you’ll always know the 20% that moves the 80% when life gets heavy.</div>
+          </li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#apply" onclick="event.preventDefault(); document.querySelector('#apply').scrollIntoView({behavior:'smooth'});" class="btn btn-primary text-sm">Enquire now</a>
+          <a href="#offer" onclick="event.preventDefault(); document.querySelector('#offer').scrollIntoView({behavior:'smooth'});" class="btn btn-ghost text-sm">See plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply / Contact -->
+  <section id="apply" class="py-16 tint">
+    <div class="mx-auto max-w-wrap px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Enquire now</h2>
+        <p class="mt-3 text-gray-700">Tell me about your goals, constraints, and what &quot;consistent&quot; looks like for you. I’ll reply with next steps.</p>
+        <ul class="mt-4 list-tick space-y-2 text-sm text-gray-800">
+          <li>Busy‑day schedule & travel patterns</li>
+          <li>Training history & injuries</li>
+          <li>Food preferences & non‑negotiables</li>
+        </ul>
+        <div class="mt-6 flex gap-3">
+          <a href="https://forms.gle/WqVqTaEEaJvhGgtG7" target="_blank" class="btn btn-primary text-sm">Open application form</a>
+          <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="btn btn-ghost text-sm">WhatsApp</a>
+        </div>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-bold">What happens after I apply?</h3>
+        <ol class="mt-3 list-decimal pl-5 text-sm text-gray-700 space-y-2">
+          <li>I review your form within 48 hours.</li>
+          <li>If it’s a fit, you’ll get plan options & start date.</li>
+          <li>Payment & onboarding. Then we get to work.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">FAQ</h2>
+        <p class="mt-2 text-gray-700">Quick answers so you can get moving.</p>
+      </div>
+      <div class="mt-8 md:mt-10">
+        <details class="faq">
+          <summary>Do I need a 6‑day split? <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0C0C0D" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <div class="pt-3 text-sm text-gray-700">No. We prioritize stimulus, not time‑wasting volume. Most busy pros thrive on 2–4 days.</div>
+        </details>
+        <details class="faq">
+          <summary>Is the Lite plan actually personalized? <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0C0C0D" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <div class="pt-3 text-sm text-gray-700">Yes. It’s tailored to your schedule, equipment, preferences, and constraints. It just doesn’t include 1:1 messaging.</div>
+        </details>
+        <details class="faq">
+          <summary>What’s your response time in Comprehensive? <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0C0C0D" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <div class="pt-3 text-sm text-gray-700">Within reasonable working hours. You’ll never be ghosted; boundaries keep both of us consistent.</div>
+        </details>
+        <details class="faq">
+          <summary>Can I switch plans later? <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#0C0C0D" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <div class="pt-3 text-sm text-gray-700">Absolutely. Many start Lite and move to Comprehensive once momentum hits.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+    <!-- Watch / YouTube -->
+  <section id="watch" class="py-16 tint">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Catch us (me, Coach Rishi), our mindset & philosophies on YouTube</h2>
+        <p class="mt-2 text-gray-700">Short, practical breakdowns - mechanics, progression, and nutrition you can use this week. <em>Click any preview to play.</em></p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
+        <div class="aspect-video w-full rounded-2xl card overflow-hidden" style="box-shadow: var(--shadow-md);">
+          <iframe class="w-full h-full"
+                  src="https://www.youtube.com/embed/gvH7S4-NCb4"
+                  title="YouTube video"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+        </div>
+        <div class="aspect-video w-full rounded-2xl card overflow-hidden" style="box-shadow: var(--shadow-md);">
+          <iframe class="w-full h-full"
+                  src="https://www.youtube.com/embed/rddk16SojaU"
+                  title="YouTube video"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <a href="https://www.youtube.com/@coachrishisuvarna/videos"
+           class="inline-block bg-red-600 text-white px-4 py-2 rounded-lg shadow hover:bg-red-700 transition">
+          See more videos
+        </a>
+      </div>
+    </div>
+  </section>
+
+<!-- Instagram Highlights -->
+  <section id="instagram" class="py-16">
+    <div class="mx-auto max-w-wrap px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Some Value Bombs on Instagram</h2>
+        <p class="mt-2 text-gray-700">A peek at practical tips and mindset cues. Click through for more.</p>
+      </div>
+      <div class="grid md:grid-cols-3 mt-10">
+        <div class="card overflow-hidden aspect-4x5 insta ig-card">
+          <iframe src="https://www.instagram.com/p/DN2vYI72BOU/embed" loading="lazy" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <div class="card overflow-hidden aspect-4x5 insta ig-card">
+          <iframe src="https://www.instagram.com/p/DAdmDxCoYfm/embed" loading="lazy" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <div class="card overflow-hidden aspect-4x5 insta ig-card">
+          <iframe src="https://www.instagram.com/p/DMIfNinogG4/embed" loading="lazy" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <!-- Free resources & AI Tools combined -->
+<section id="resources" class="py-16 tint">
+  <div class="mx-auto max-w-wrap px-4">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Free usable resources & AI tools</h2>
+      <p class="mt-2 text-gray-700">Plug-and-play guides + quick AI helpers. No email walls, no fluff — just tools to keep momentum alive.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-10 text-sm text-gray-700">
+      <div class="card p-6">
+        <h3 class="font-bold">NRI Weekend Fix</h3>
+        <p class="mt-2">Survive weddings, socials, and Sunday cravings without tanking progress.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-bold">Busy-Day Meal Defaults</h3>
+        <p class="mt-2">Quick protein-first templates for packed weekdays.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="font-bold">High-ROI Training Splits</h3>
+        <p class="mt-2">2–3 day structures that fit real life while still building muscle.</p>
+      </div>
+      <a class="card p-6 flex flex-col hover:shadow-md" href="https://chatgpt.com/g/g-68207cfaf2848191bf43f144c3469429-training-with-beyondmusclecrew?model=gpt-4o" target="_blank" rel="noopener">
+        <h3 class="font-bold">Training with BeyondMuscleCrew</h3>
+        <p class="mt-2">Bang-for-buck programming cues and swaps.</p>
+        <span class="mt-4 btn btn-ghost text-sm">Open in ChatGPT</span>
+      </a>
+      <a class="card p-6 flex flex-col hover:shadow-md" href="https://chatgpt.com/g/g-6834cb7370d481918a68c9d312c7a2ff-unjammed?model=gpt-4o" target="_blank" rel="noopener">
+        <h3 class="font-bold">Unjammed</h3>
+        <p class="mt-2">Beat overthinking and move forward with clean next steps.</p>
+        <span class="mt-4 btn btn-ghost text-sm">Open in ChatGPT</span>
+      </a>
+      <a class="card p-6 flex flex-col hover:shadow-md" href="https://chatgpt.com/g/g-67f39ff058e88191861e3b8bb004b834-fooding-with-beyondmusclecrew?model=gpt-4o" target="_blank" rel="noopener">
+        <h3 class="font-bold">Fooding with BeyondMuscleCrew</h3>
+        <p class="mt-2">Defaults, eating-out swaps, and protein targets.</p>
+        <span class="mt-4 btn btn-ghost text-sm">Open in ChatGPT</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 border-t tint" style="border-color: var(--line);">
+  <div class="mx-auto max-w-wrap px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+    <div>© Beyond Muscle Crew — All rights reserved</div>
+    <div class="flex gap-4">
+      <a href="#resources" class="underline">Resources</a>
+      <a href="#offer" class="underline">Plans</a>
+      <a href="#apply" class="underline">Apply</a>
+    </div>
+  </div>
+</footer>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
